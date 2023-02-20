@@ -20,7 +20,7 @@ t=[0]
 
 FIELD_A=5   #50
 Hz=300   #5 #float(input( "podaj wysokosc zadaną:"))
-Tp=   0.1  #float(input("podaj okres probkowania:"))  tp=0.5
+Tp=0.1  #float(input("podaj okres probkowania:"))  tp=0.5
 b=0.1 #wspólczynnik wyplywu b=0.35    # 0.025
 kp=3    #1.15 # kp=10
 ti=4     #0.25   # ti=50   czas zdwojenia    n_i*Tp
@@ -33,7 +33,7 @@ HIGH.append(float(ho))
 N=range(int(Ts/Tp))
 for n in N:
     e.append(Hz-HIGH[n]) #uchyb regulacji
-    u.append(kp * (e[n] + (Tp / ti) * sum(e) + (td / ti) * (e[n] - e[n - 1])))      #napięcie  #ti(HIGH[n]*tp)
+    u.append(kp * (e[n] + (Tp / ti) * sum(e) + (td / ti) * (e[n] - e[n - 1])))      #uchyb regulacji  #ti(HIGH[n]*tp)
     if(u[n]<0 or u[n]>10):
         u[n]>10.0
     else:
